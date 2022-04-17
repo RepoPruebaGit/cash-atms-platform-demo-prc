@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="49d38ed9-65e2-474e-83c8-08e466bb5f61" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="pruebagitFlow" doc:id="7511a016-5761-4b4e-8bcf-7a714a340837" >
+		<http:listener doc:name="Listener" doc:id="be079856-3eff-4f7c-8640-47991b8f2acc" config-ref="HTTP_Listener_config" path="/demo"/>
+		<logger level="INFO" doc:name="Logger" doc:id="138dd5ba-185b-4e1d-8925-e888edabcc6a" message="#[payload]"/>
+	</flow>
+</mule>
